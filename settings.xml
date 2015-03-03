@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+	<website>
+		<item country="Australia" price_offset="0" code="AU">https://0c2e9f1d55a3f0afaaa6748c5284efba:9650de5aa396d94a91f84ee4b169efa2@stanchen.myshopify.com/admin</item>
+		<item country="USA" price_offset="0" code="US">https://06c1060abb7134b5a531e522d0d4f929:4b770aba416883beed7f6da1d6085ea9@drgrab-us.myshopify.com/admin</item>
+		<item country="Canada" price_offset="0" code="CA">https://5e7f7d78967fe5546a6c1754db0fd45e:68f7257c6b72bbf0fdb5c3e2280d624e@drgrab-ca.myshopify.com/admin</item>
+		<item country="New Zealand" price_offset="2" code="NZ">https://58e63ae0af07ca3f1d177c5dca72e27a:d22ec885315b047d602c0622c3275c25@drgrabnz.myshopify.com/admin</item>
+		<item country="UK" price_offset="0.70" code="UK">https://2f4e06154e393cfb43a5a1fbdb7e06c4:8e15066732d261b919264f43ecfbe60c@drgrab-uk.myshopify.com/admin</item>
+		<item country="France" price_offset="0.80" code="FR">https://8150f648de0c916d08773782daba7d65:28b130c2d3ff6729f4bf662e399d3dfb@drgrab-fr.myshopify.com/admin</item>
+		<item country="Belgium" price_offset="0.80" code="BE">https://62763d54ad1a9f497e8b295d2aa41a36:a9845e86b8bc66da9791c4e93973fc72@drgrab-be.myshopify.com/admin</item>
+		<item country="Singapore" price_offset="1.10" code="SG">https://fd9dd425786eece356a1c00f15bfb9a3:99ebc716ff7e58995e32577326513f79@drgrab-sg.myshopify.com/admin</item>
+		<item country="Malaysia" price_offset="2.78" code="MY">https://4430d5cd3c71ce39bca965a08260f9f3:30c68f05a5d126a024e070dd9b72a64d@drgrab-my.myshopify.com/admin</item>
+		<item country="Ireland" price_offset="0.8" code="IE">https://325753f5cfaf12ed43aa0e4c016e4d1d:ae2a605a911df7f2dbca13c634152cba@drgrab-ie.myshopify.com/admin</item>
+	</website>
+	<pwd>c0c26427167e99e718cdd863e683d497</pwd>
+</settings>
