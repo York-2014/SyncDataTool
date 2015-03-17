@@ -59,6 +59,7 @@ namespace SyncDataTool.BLL
                         afterChangedPrice = getAfterChangedPrice(Convert.ToDouble(variant.price), Convert.ToDouble(variant.grams), target_price_offset, target_country_code.ToUpper());
                     }
                     variant.price = afterChangedPrice;
+                    variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
                 }
                 else if (country_code.ToUpper() == "FR" && target_country_code.ToUpper() == "BE")
                 {
@@ -125,6 +126,7 @@ namespace SyncDataTool.BLL
                         if (Convert.ToDouble(variant.price).ToString("0.00") == "6.99")
                         {
                             afterChangedPrice = 5.99;
+                            variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
                         }
                     }
                     else if ("UK" == target_country_code)
@@ -132,6 +134,7 @@ namespace SyncDataTool.BLL
                         if (Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                         {
                             afterChangedPrice = 5.99;
+                            variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
                         }
                         else
                         {
@@ -153,10 +156,12 @@ namespace SyncDataTool.BLL
                     else if ("US" == target_country_code && Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                     {
                         afterChangedPrice = 6.99;
+                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
                     }
                     else if ("CA" == target_country_code && Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                     {
                         afterChangedPrice = 6.99;
+                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
                     }
                     else
                     {
@@ -168,28 +173,55 @@ namespace SyncDataTool.BLL
                 #endregion
 
                 #region 修改国家简码
-                if (null != variant.option1)
+                if (target_country_code == "MY" || target_country_code == "SG")
                 {
-                    //修改option1
-                    if (variant.option1.ToString().Contains(string.Format("IN {0}", country_code)))
+                    if (null != variant.option1)
                     {
-                        variant.option1 = variant.option1.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        if (variant.option1.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option1 = variant.option1.ToString().Substring(0, variant.option1.ToString().IndexOf("("));
+                        }
+                    }
+                    if (null != variant.option2)
+                    {
+                        if (variant.option2.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option2 = variant.option2.ToString().Substring(0, variant.option2.ToString().IndexOf("("));
+                        }
+                    }
+                    if (null != variant.option3)
+                    {
+                        if (variant.option3.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option3 = variant.option3.ToString().Substring(0, variant.option3.ToString().IndexOf("("));
+                        }
                     }
                 }
-                if (null != variant.option2)
+                else
                 {
-                    //修改option2
-                    if (variant.option2.ToString().Contains(string.Format("IN {0}", country_code)))
+                    if (null != variant.option1)
                     {
-                        variant.option2 = variant.option2.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        //修改option1
+                        if (variant.option1.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option1 = variant.option1.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        }
                     }
-                }
-                if (null != variant.option3)
-                {
-                    //修改option3
-                    if (variant.option3.ToString().Contains(string.Format("IN {0}", country_code)))
+                    if (null != variant.option2)
                     {
-                        variant.option3 = variant.option3.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        //修改option2
+                        if (variant.option2.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option2 = variant.option2.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        }
+                    }
+                    if (null != variant.option3)
+                    {
+                        //修改option3
+                        if (variant.option3.ToString().Contains(string.Format("IN {0}", country_code)))
+                        {
+                            variant.option3 = variant.option3.ToString().Replace(string.Format("IN {0}", country_code), string.Format("IN {0}", target_country_code));
+                        }
                     }
                 }
                 #endregion
