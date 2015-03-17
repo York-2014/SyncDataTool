@@ -59,7 +59,7 @@ namespace SyncDataTool.BLL
                         afterChangedPrice = getAfterChangedPrice(Convert.ToDouble(variant.price), Convert.ToDouble(variant.grams), target_price_offset, target_country_code.ToUpper());
                     }
                     variant.price = afterChangedPrice;
-                    variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                    variant.compare_at_price = 2 * afterChangedPrice;
                 }
                 else if (country_code.ToUpper() == "FR" && target_country_code.ToUpper() == "BE")
                 {
@@ -119,14 +119,14 @@ namespace SyncDataTool.BLL
                         {
                             afterChangedPrice = Convert.ToDouble(variant.price) - source_price_offset + target_price_offset;
                         }
-                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                        variant.compare_at_price = 2 * afterChangedPrice;
                     }
                     else if ("FR" == target_country_code)
                     {
                         if (Convert.ToDouble(variant.price).ToString("0.00") == "6.99")
                         {
                             afterChangedPrice = 5.99;
-                            variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                            variant.compare_at_price = 2 * afterChangedPrice;
                         }
                     }
                     else if ("UK" == target_country_code)
@@ -134,7 +134,7 @@ namespace SyncDataTool.BLL
                         if (Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                         {
                             afterChangedPrice = 5.99;
-                            variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                            variant.compare_at_price = 2 * afterChangedPrice;
                         }
                         else
                         {
@@ -156,17 +156,17 @@ namespace SyncDataTool.BLL
                     else if ("US" == target_country_code && Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                     {
                         afterChangedPrice = 6.99;
-                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                        variant.compare_at_price = 2 * afterChangedPrice;
                     }
                     else if ("CA" == target_country_code && Convert.ToDouble(variant.price).ToString("0.00") == "7.99")
                     {
                         afterChangedPrice = 6.99;
-                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                        variant.compare_at_price = 2 * afterChangedPrice;
                     }
                     else
                     {
                         afterChangedPrice = Convert.ToDouble(variant.price) - source_price_offset + target_price_offset;
-                        variant.compare_at_price = Convert.ToDouble(variant.compare_at_price) + (2 * target_price_offset);
+                        variant.compare_at_price = 2 * afterChangedPrice;
                     }
                     variant.price = afterChangedPrice;
                 }
