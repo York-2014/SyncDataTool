@@ -242,7 +242,7 @@ namespace SyncDataTool.BLL
             int iAfterChangedPrice = Convert.ToInt32(afterChangedPrice.ToString("0.00").Substring(0, afterChangedPrice.ToString("0.00").IndexOf(".")));
 
             //修改Title
-            sourceProduct.product.title = sourceProduct.product.title.ToString().Contains(iCurrentPrice.ToString()) ? sourceProduct.product.title.ToString().Replace(iCurrentPrice.ToString(), iAfterChangedPrice.ToString()) : sourceProduct.product.title;
+            //sourceProduct.product.title = sourceProduct.product.title.ToString().Contains(iCurrentPrice.ToString()) ? sourceProduct.product.title.ToString().Replace(iCurrentPrice.ToString(), iAfterChangedPrice.ToString()) : sourceProduct.product.title;
 
             string strTransCurrentPrice = string.Empty;
 
@@ -347,7 +347,7 @@ namespace SyncDataTool.BLL
                                 string strPageTitle = Convert.ToString(sourceMetafield.value);
                                 if (strPageTitle.Contains("$") || strPageTitle.Contains("£") || strPageTitle.Contains("€"))
                                 {
-                                    strPageTitle = strPageTitle.Substring(strPageTitle.Trim().IndexOf(" "));
+                                    strPageTitle = strPageTitle.Substring(strPageTitle.Trim().IndexOf(" ") + 1);
 
                                     strPageTitle = string.Format("${0}{1}", Convert.ToDouble(afterChangedPrice).ToString("0.00"), strPageTitle);
 
